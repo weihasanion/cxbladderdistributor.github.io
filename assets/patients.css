@@ -1,0 +1,29 @@
+.hero {
+  .hero__image {
+    background-image: url("./image/patients-banner.jpg");
+    background-position: left top 20%;
+    background-size: cover;
+
+    @media (min-width: 992px) {
+      background-size: 1240px;
+    }
+  }
+}
+
+.two-column-content {
+  img {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+#using-cxbladder {
+  flex-shrink: 0;
+
+  h3 {
+    margin-bottom: var(--spacing-sm);
+
+    @media (min-width: 768px) {
+      margin-bottom: var(--spacing-md);
+    }
+  }
+}

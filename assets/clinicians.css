@@ -1,0 +1,429 @@
+#hematuria-evaluation,
+#surveillance > .container {
+  .card-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    gap: 20px;
+
+    .card {
+      flex: 1;
+    }
+
+    ul {
+      flex: 1;
+      color: var(--color-secondary);
+    }
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 48px;
+      margin-bottom: var(--spacing-lg);
+    }
+  }
+}
+
+.table-wrapper {
+  position: relative;
+}
+
+.table-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 0 8px;
+  min-width: 100%;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-inline: 20px;
+  margin-inline: -20px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  @media (min-width: 768px) {
+    min-width: 604px;
+    padding-inline: 40px;
+    margin-inline: -40px;
+  }
+
+  @media (min-width: 992px) {
+    gap: 0 20px;
+    padding-inline: 60px;
+    margin-inline: -60px;
+    width: 100%;
+  }
+
+  .table-grid__header {
+    padding: 20px;
+    border-radius: 8px 8px 0 0;
+    vertical-align: top;
+    min-width: 170px;
+
+    &.product {
+      background-color: var(--color-lightgrey);
+    }
+
+    &.triage {
+      background-color: var(--color-lighttriage);
+
+      h1 {
+        color: var(--color-darktriage);
+      }
+    }
+
+    &.detect {
+      background-color: var(--color-lightdetect);
+
+      h1 {
+        color: var(--color-darkdetect);
+      }
+    }
+
+    &.monitor {
+      background-color: var(--color-lightmonitor);
+
+      h1 {
+        color: var(--color-darkmonitor);
+      }
+    }
+
+    p.body-3 {
+      color: var(--color-primary);
+    }
+
+    h1,
+    .h1 {
+      font-size: 20px;
+
+      @media (min-width: 768px) {
+        font-size: 32px;
+      }
+    }
+  }
+
+  .table-grid__cell {
+    vertical-align: top;
+    min-width: 170px;
+    display: flex;
+
+    &.product {
+      background-color: var(--color-lightgrey);
+    }
+
+    &.triage {
+      background-color: var(--color-lighttriage);
+
+      svg path {
+        stroke: var(--color-darktriage);
+      }
+    }
+
+    &.detect {
+      background-color: var(--color-lightdetect);
+
+      svg path {
+        stroke: var(--color-darkdetect);
+      }
+    }
+
+    &.monitor {
+      background-color: var(--color-lightmonitor);
+
+      svg path {
+        stroke: var(--color-darkmonitor);
+      }
+    }
+
+    .cell {
+      margin-inline: 20px;
+      padding-block: 16px;
+      border-top: 1px solid white;
+      flex: 1;
+
+      &:has(svg) {
+        padding-block: 0;
+        height: 100%;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    svg {
+      width: 100%;
+      margin: auto;
+    }
+
+    .body-1 {
+      font-size: 16px;
+      color: var(--color-secondary);
+
+      @media (min-width: 768px) {
+        font-size: 18px;
+      }
+    }
+
+    .body-2 {
+      font-size: 14px;
+      color: var(--color-secondary);
+
+      @media (min-width: 768px) {
+        font-size: 16px;
+      }
+    }
+
+    .body-3 {
+      font-size: 12px;
+      color: var(--color-secondary);
+
+      @media (min-width: 768px) {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .table-grid__footer {
+    border-radius: 0 0 8px 8px;
+    padding: 20px;
+    vertical-align: top;
+    min-width: 170px;
+
+    p {
+      color: white !important;
+    }
+
+    &.product {
+      background-color: var(--color-midgrey);
+    }
+
+    &.triage {
+      background-color: var(--color-darktriage);
+    }
+
+    &.detect {
+      background-color: var(--color-darkdetect);
+    }
+
+    &.monitor {
+      background-color: var(--color-darkmonitor);
+    }
+
+    .h2 {
+      font-size: 16px;
+
+      @media (min-width: 768px) {
+        font-size: 18px;
+      }
+    }
+
+    .body-1 {
+      font-size: 16px;
+      color: white;
+
+      @media (min-width: 768px) {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+.table-navigation {
+  margin-top: 30px;
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  width: 100%;
+
+  @media (min-width: 904px) {
+    display: none;
+  }
+}
+
+.table-progress {
+  width: 100%;
+}
+
+.table-progress-bar {
+  width: 100%;
+  height: 4px;
+  background-color: var(--color-lightgrey);
+  overflow: hidden;
+}
+
+.table-progress-fill {
+  height: 100%;
+  background-color: var(--color-primary);
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.table-buttons {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.table-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border: 2px solid var(--color-primary);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  pointer-events: auto;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+
+  svg path {
+    width: 9px;
+    height: 18px;
+    stroke: var(--color-primary);
+  }
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-primary);
+
+    svg path {
+      stroke: white;
+    }
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    transform: none;
+    cursor: unset;
+  }
+}
+
+.test-result__card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: var(--spacing-sm);
+
+  .test-result__card-body,
+  .test-result__card-footer {
+    padding: 16px 10px;
+  }
+
+  .test-result__card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .stats-heading {
+      min-width: 251px;
+
+      h4 {
+        margin-bottom: 8px;
+      }
+    }
+
+    .stats-wrapper {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      flex: 1;
+
+      .stat {
+        background-color: white;
+        border-radius: 8px;
+        padding-block: 12px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        justify-content: center;
+        align-items: center;
+        min-width: 200px;
+      }
+    }
+  }
+
+  .test-result__card-footer {
+    color: white !important;
+    border-radius: 0 0 8px 8px;
+  }
+
+  &.triage {
+    background-color: var(--color-lighttriage);
+
+    .test-result__card-body {
+      color: var(--color-darktriage) !important;
+    }
+
+    .test-result__card-footer {
+      background-color: var(--color-darktriage);
+    }
+  }
+
+  &.detect {
+    background-color: var(--color-lightdetect);
+
+    .test-result__card-body {
+      color: var(--color-darkdetect) !important;
+    }
+
+    .test-result__card-footer {
+      background-color: var(--color-darkdetect);
+    }
+  }
+
+  &.monitor {
+    background-color: var(--color-lightmonitor);
+
+    .test-result__card-body {
+      color: var(--color-darkmonitor) !important;
+    }
+
+    .test-result__card-footer {
+      background-color: var(--color-darkmonitor);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .test-result__card-body {
+      flex-direction: row;
+
+      .stats-heading h4 {
+        margin-bottom: 12px;
+      }
+
+      .stats-wrapper {
+        gap: 20px;
+
+        .stat {
+          min-width: 150px;
+        }
+      }
+    }
+
+    .test-result__card-body,
+    .test-result__card-footer {
+      padding: 20px;
+    }
+  }
+}
+
+#optimize > .container {
+  .two-column-content:not(:last-child) {
+    margin-bottom: var(--spacing-md);
+
+    @media (min-width: 768px) {
+      margin-bottom: var(--spacing-lg);
+    }
+  }
+}
